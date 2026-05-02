@@ -7,23 +7,9 @@ dotenv.config();
 
 const app = express();
 
-// CORS configuration for production
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://mindmate.vercel.app',
-  'https://mindmate-git-main.vercel.app',
-  process.env.FRONTEND_URL
-].filter(Boolean);
-
+// CORS - Allow all origins for now
 app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
+  origin: '*',
   credentials: true
 }));
 
