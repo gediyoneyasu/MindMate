@@ -1,0 +1,465 @@
+/* Dashboard.css - WCU Dashboard Styles */
+
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+  padding: 100px 24px 60px;
+}
+
+/* Welcome Section */
+.dashboard-welcome {
+  background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 100%);
+  border-radius: 20px;
+  padding: 32px 40px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.welcome-icon {
+  font-size: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.welcome-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.welcome-subtitle {
+  color: #a8dadc;
+  font-size: 14px;
+}
+
+.welcome-date {
+  color: #ffd700;
+  font-size: 14px;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-card-projects::before { background: #1a472a; }
+.stat-card-pdfs::before { background: #c5a028; }
+.stat-card-views::before { background: #2d6a4f; }
+.stat-card-downloads::before { background: #6b7280; }
+
+.stat-icon {
+  font-size: 40px;
+  padding: 12px;
+  background: #f3f4f6;
+  border-radius: 12px;
+}
+
+.stat-info {
+  flex: 1;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.stat-trend {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  font-size: 11px;
+  color: #10b981;
+  background: #d1fae5;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* Quick Actions Section */
+.quick-actions-section {
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 24px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #c5a028, #1a472a);
+  border-radius: 2px;
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.quick-action-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.action-icon {
+  width: 60px;
+  height: 60px;
+  background: #1a472a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 28px;
+  transition: transform 0.3s ease;
+}
+
+.quick-action-card:hover .action-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.action-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.action-description {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+.action-arrow {
+  display: inline-block;
+  color: #c5a028;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.quick-action-card:hover .action-arrow {
+  transform: translateX(5px);
+}
+
+/* Recent Projects Section */
+.recent-projects-section {
+  margin-bottom: 48px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.view-all-link {
+  color: #c5a028;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.view-all-link:hover {
+  color: #1a472a;
+}
+
+.recent-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.recent-project-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.recent-project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.project-icon {
+  font-size: 40px;
+}
+
+.project-info {
+  flex: 1;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.project-description {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tech-badge {
+  background: #e8f5e9;
+  color: #1a472a;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.project-link {
+  color: #c5a028;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.3s;
+}
+
+.project-link:hover {
+  gap: 8px;
+}
+
+/* Info Cards Section */
+.info-cards-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.info-card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.info-card-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.info-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.info-card p {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Loading State */
+.dashboard-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+}
+
+.loading-spinner-large {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #1a472a;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .stats-grid,
+  .quick-actions-grid,
+  .recent-projects-grid,
+  .info-cards-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .dashboard-welcome {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .welcome-content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-container {
+    padding: 80px 16px 40px;
+  }
+  
+  .stats-grid,
+  .quick-actions-grid,
+  .recent-projects-grid,
+  .info-cards-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .welcome-title {
+    font-size: 22px;
+  }
+  
+  .stat-card {
+    padding: 16px;
+  }
+  
+  .stat-number {
+    font-size: 24px;
+  }
+  
+  .recent-project-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .project-tech {
+    justify-content: center;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.stat-card, .quick-action-card, .recent-project-card, .info-card {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
