@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
+import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -98,12 +98,12 @@ function Home() {
       {/* Hero Slider Section */}
       <div className="hero-slider">
         <Swiper
-          modules={[Autoplay, Pagination, Navigation, EffectFade]}
+          modules={[Autoplay, Pagination, EffectFade]}
           autoplay={{ delay: 4000 }}
           loop={true}
           effect="fade"
           pagination={{ clickable: true }}
-          navigation={true}
+          // navigation removed
           className="hero-swiper"
         >
           {sliders.map((slider, index) => (
